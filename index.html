@@ -4,9 +4,9 @@
   <title>Web Opener</title>
   <style>
     body {
-      font-family: Roboto, sans-serif; 
-      background-color: #212121;
-      color: #fff;
+      font-family: Roboto, sans-serif; /* YouTube-like font */
+      background-color: #212121; /* Dark background */
+      color: #fff; /* White text */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,7 +15,7 @@
     }
 
     .container {
-      background-color: #282828; 
+      background-color: #282828;
       padding: 40px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -38,7 +38,7 @@
     }
 
     button {
-      background-color: #ff0000; 
+      background-color: #ff0000; /* YouTube red */
       color: #fff;
       border: none;
       padding: 15px 30px;
@@ -49,10 +49,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Web Opener</h1> 
+    <h1>Web Opener</h1>
+    <p>Enter the website URL:</p>
     <input type="text" id="websiteInput" placeholder="Enter URL (e.g., https://www.example.com)">
     <button onclick="openWebsite()">Open</button>
-  </div>
+    <br>
+    <a id="websiteLink" href="#" target="_blank">Link</a> </div>
 
   <script>
     function openWebsite() {
@@ -64,8 +66,12 @@
         return;
       }
 
-      // Redirect to about:blank immediately (might not always be visible)
-      window.location.href = "about:blank"; 
+      // Update anchor tag's href attribute with entered URL
+      const websiteLink = document.getElementById('websiteLink');
+      websiteLink.href = websiteUrl;
+
+      // Attempt to redirect to about:blank (might not always be visible)
+      window.location.href = "about:blank";
 
       // Open the website in a new window
       window.open(websiteUrl, '_blank'); 
